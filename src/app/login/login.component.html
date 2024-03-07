@@ -1,0 +1,38 @@
+<h1 class="app-title">chatters PARK</h1>
+<form class="login-card" [formGroup]="loginForm">
+  <div class="form-group">
+    <label for="username" class="form-label">Username</label>
+    <input type="text" id="username" autocomplete="off" formControlName="username"
+    [ngClass]="{'invalid':usernameControl?.touched && usernameControl?.invalid}">
+    <span class="error-msg" *ngIf="usernameControl?.touched && usernameControl?.invalid">Required *</span>
+  </div>
+  <div class="form-group" *ngIf="!isLoginForm">
+    <label for="email" class="form-label">Email</label>
+    <input type="email" id="email" autocomplete="off" formControlName="userEmail"
+           [ngClass]="{'invalid':emailControl?.touched && emailControl?.invalid}">
+    <span class="error-msg" *ngIf="emailControl?.touched && emailControl?.invalid">Required *</span>
+  </div>
+  <div class="form-group">
+    <label for="password" class="form-label">Password</label>
+    <input type="password" id="password" autocomplete="off" formControlName="password"
+           [ngClass]="{'invalid':passwordControl?.touched && passwordControl?.invalid}">
+    <span class="error-msg" *ngIf="passwordControl?.touched && passwordControl?.invalid">Required *</span>
+  </div>
+  <div class="form-group" *ngIf="!isLoginForm">
+    <label for="username" class="form-label">Gender</label>
+    <select class="form-select" aria-label="Default select example" formControlName="gender">
+      <option value="MALE">Male</option>
+      <option value="FEMALE">Female</option>
+    </select>
+    <span class="error-msg" *ngIf="genderControl?.touched && genderControl?.invalid">Required *</span>
+  </div>
+  <div class="form-group" *ngIf="!isLoginForm">
+    <label for="dob">Date of Birth</label>
+    <input id="dob" class="form-control" type="date" [max]="currentDate | date : 'yyyy-MM-dd'" formControlName="dob"
+           [ngClass]="{'invalid':dobControl?.touched && dobControl?.invalid}"/>
+    <span class="error-msg" *ngIf="dobControl?.touched && dobControl?.invalid">Required *</span>
+  </div>
+  <button type="button" class="btn btn-lg" [disabled]="loginForm.invalid" (click)="login()">{{isLoginForm ? 'Login' : 'Sign Up'}}</button>
+  <p *ngIf="isLoginForm" class="mt-1">Don't have an account ? <a href="javascript:void(0)" (click)="isLoginForm = !isLoginForm">Sign Up Now</a></p>
+  <p *ngIf="!isLoginForm">Have an account ? <a href="javascript:void(0)" (click)="isLoginForm = !isLoginForm" >Sign In</a></p>
+</form>

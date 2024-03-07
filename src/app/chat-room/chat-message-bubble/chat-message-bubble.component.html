@@ -1,0 +1,7 @@
+<div class="card" [ngClass]="{'sent':message.messageType === 'SEND','received':message.messageType === 'RECEIVE'}">
+  <span class="badge badge-pill card-title">{{message.username | titlecase}}</span>
+  <span class="float-end" style="font-size: 8px">{{message.messageTime | date :'dd/MM/yyy hh:mm a'}}</span>
+  <div class="card-body">
+    {{message.message}}
+  </div>
+</div>

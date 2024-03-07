@@ -1,0 +1,77 @@
+@import "../../css/_variables.scss";
+.navbar-brand{
+  font-family: 'Pacifico', serif;
+  display: flex;
+  align-items: center;
+  img{
+    margin-right: 20px;
+  }
+}
+.chat-container{
+  width: 85%;
+  margin: 10px auto;
+  height: 87vh;
+  border: 2px solid darkslategrey;
+  display: flex;
+  .users-list{
+    width: 30%;
+    height: 100%;
+    overflow-y: auto;
+    scroll-behavior: smooth;
+    border-right: 2px solid darkslategrey;
+    &::-webkit-scrollbar{
+      display: none;
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+    ul li{
+      cursor: pointer;
+      border-radius: 0;
+    }
+  }
+  .chat-room,.chat-area{
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow-y: auto;
+    scroll-behavior: smooth;
+    &::-webkit-scrollbar{
+      display: none;
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+    .chat-form{
+      width: 100%;
+      position: absolute;
+      bottom: 0;
+      input{
+        border-color: $color-blue;
+      }
+      input,button{
+        border-radius: 0;
+      }
+      button{
+        background: $color-blue;
+        color: #fff;
+      }
+    }
+  }
+}
+.user-info{
+  width: 30%;
+  height: 100%;
+  border-left: 2px solid darkslategrey;
+  h3{
+    font-size: 1.5rem;
+    color: $color-blue;
+  }
+}
+.avatar{
+  border-radius: 50%;
+  height: 35px;
+  width: 35px;
+  margin-right: 10px;
+}
+.chat-area{
+  height: 90% !important;
+}

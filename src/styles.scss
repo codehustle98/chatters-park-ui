@@ -1,1 +1,40 @@
 /* You can add global styles to this file, and also import other style files */
+
+@import "css/_fonts.scss";
+@import "css/_variables.scss";
+
+*{
+  padding: 0;
+  margin: 0;
+}
+body{
+  font-family: "Roboto R", serif;
+}
+input{
+  padding: 6px 10px;
+  border-radius: 5px;
+  border: 1px solid lightgrey;
+  &:focus-visible{
+    outline: none;
+    box-shadow: none;
+  }
+  &:focus{
+    box-shadow: none !important;
+  }
+  &.invalid{
+    border: 2px solid $color-red;
+  }
+}
+.error-msg{
+  color: $color-red;
+  font-size: 12px;
+}
+
+
+.app-title{
+  font-family: Pacifico, serif;
+  color: $color-blue;
+  font-size: 3rem;
+  text-align: center;
+  margin-top: 15px;
+}

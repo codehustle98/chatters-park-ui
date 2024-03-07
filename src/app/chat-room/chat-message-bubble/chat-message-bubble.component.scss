@@ -1,0 +1,32 @@
+@import "../../../css/_variables.scss";
+
+.card{
+  padding: 0 3px;
+  display: block;
+  width: 60%;
+  margin: 5px;
+  font-size: .65rem;
+  &.sent{
+    float: right;
+    background: $color-blue;
+    color: #fff;
+    .badge-pill{
+      background: #fff;
+      color: $color-blue;
+      margin-bottom: 0;
+      margin-left: 5px;
+    }
+  }
+  &.received{
+    float: left;
+    .badge-pill{
+      background: $color-blue;
+      color: #fff;
+      margin-bottom: 0;
+      margin-left: 5px;
+    }
+  }
+  .card-body{
+    padding: 5px;
+  }
+}

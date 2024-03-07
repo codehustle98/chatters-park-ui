@@ -1,0 +1,39 @@
+<nav class="navbar navbar-dark bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand">
+      <img src="./assets/imgs/social-media.png" width="30" height="30" class="d-inline-block align-text-top">
+      Chatters Park
+    </a>
+    <form class="d-flex">
+      <button type="button" class="btn btn-sm btn-outline-danger" (click)="logoutUser()">Logout</button>
+    </form>
+  </div>
+</nav>
+<div class="chat-container">
+  <div class="users-list">
+    <input type="search" placeholder="Search Users" class="w-100 form-control" #searchText="ngModel" ngModel>
+    <ul class="list-group">
+      <li class="list-group-item" *ngFor="let user of users | searchList: searchText.value : 'username'">
+        <img [src]="user.gender === 'MALE' ? maleAvatar : femaleAvatar" alt="male_avatar" class="img-thumbnail avatar"> {{user.username | titlecase}}
+      </li>
+    </ul>
+  </div>
+  <div class="chat-room">
+    <div class="chat-area" #chatContainer>
+      <span *ngFor="let msg of messages">
+        <app-chat-message-bubble [message]="msg"></app-chat-message-bubble>
+      </span>
+    </div>
+    <form class="chat-form">
+      <div class="input-group">
+        <input type="text" class="form-control" placeholder="Type your message" aria-describedby="button-addon2" [(ngModel)]="message" name="chatMessage"
+        autocomplete="off" (keyup.enter)="sendMessage()">
+        <button class="btn btn-md" type="button" id="button-addon2" (click)="sendMessage()">Send</button>
+      </div>
+    </form>
+  </div>
+  <div class="user-info">
+    <h3 class="text-center text-capitalize">{{user?.username}}</h3>
+
+  </div>
+</div>
