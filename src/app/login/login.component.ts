@@ -40,8 +40,17 @@ export class LoginComponent implements OnInit {
         if(res && res.headers){
           this.loginForm.reset();
           localStorage.setItem('token',res.headers.get('Authorization'));
-          this.router.navigate(['/chat']);
+          this.getUser();
         }
+      });
+  }
+
+  getUser(){
+    this.userService
+      .getUser()
+      .subscribe((user:any)=>{
+        this.userService.setUser(user);
+        this.router.navigate(['/chat']);
       });
   }
 

@@ -1,1 +1,6 @@
 <router-outlet></router-outlet>
+<app-loading-spinner></app-loading-spinner>
+<div class="alert alert-{{alert.type}} msg-alert alert-dismissible fade show" role="alert" *ngIf="alert">
+  {{alert.msg}}
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>

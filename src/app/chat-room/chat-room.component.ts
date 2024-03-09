@@ -61,24 +61,20 @@ export class ChatRoomComponent implements OnInit,AfterViewChecked {
         localStorage.clear();
         this.router.navigate(['']);
       });
+
+    this._userService
+      .subscribeForUser()
+      .subscribe(user=>{
+        this.user = user;
+      });
   }
 
   ngOnInit(): void {
     this.users=[];
     this.messages=[];
-    this.getUser();
     this.getMessages();
-    this.subscribeForEvents();
     this._socketService.connect();
-  }
-
-  getUser(){
-    this._userService
-      .getUser()
-      .subscribe((user:any)=>{
-        this.user = user;
-        this._userService.setUser(user);
-      });
+    this.subscribeForEvents();
   }
 
   getMessages(){

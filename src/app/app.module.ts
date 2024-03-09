@@ -9,13 +9,15 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
 import { ChatRoomComponent } from './chat-room/chat-room.component';
 import { ChatMessageBubbleComponent } from './chat-room/chat-message-bubble/chat-message-bubble.component';
+import { LoadingSpinnerComponent } from './loading-spinner/loading-spinner.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     ChatRoomComponent,
-    ChatMessageBubbleComponent
+    ChatMessageBubbleComponent,
+    LoadingSpinnerComponent
   ],
   imports: [
     BrowserModule,

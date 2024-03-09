@@ -5,11 +5,13 @@ import {HTTP_INTERCEPTORS} from "@angular/common/http";
 import {HttpRequestInterceptor} from "./interceptors/http-request.interceptor";
 import {MessagesService} from "./services/messages.service";
 import {SearchListPipe} from "./pipes/search-list.pipe";
+import {LoadingService} from "./services/loading.service";
 
 const providers:any[] = [
   SocketService,
   UserService,
-  MessagesService
+  MessagesService,
+  LoadingService
 ]
 @NgModule({
   declarations:[
